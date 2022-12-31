@@ -12,6 +12,7 @@ require('express-async-errors')
 const authRouter = require('./routes/authRoutes')
 const userRouter = require('./routes/userRoutes')
 const productRouter = require('./routes/productRoutes')
+const reviewRouter = require('./routes/reviewRoutes')
 
 const notFound = require('./middleware/error-handler')
 const errorHandlerMiddleware = require('./middleware/not-found')
@@ -31,6 +32,7 @@ app.get('/hi', (req, res) => {
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/products', productRouter)
+app.use('/api/v1/reviews', reviewRouter)
 
 app.use(notFound)
 app.use(errorHandlerMiddleware)
