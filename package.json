@@ -28,7 +28,8 @@
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.9"
+    "nodemon": "^2.0.9",
+    "prettier": "2.8.1"
   },
   "engines": {
     "node": "19.x"
