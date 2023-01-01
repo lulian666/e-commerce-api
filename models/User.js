@@ -5,14 +5,14 @@ const bcrypt = require('bcryptjs')
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
-        require: [true, 'Please provide name'],
+        required: [true, 'Please provide name'],
         minlength: 2,
         maxlength: 12,
     },
     email: {
         type: String,
         unique: true,
-        require: [true, 'Please provide email'],
+        required: [true, 'Please provide email'],
         validate: {
             validator: validator.isEmail,
             message: 'Please provide valid email'
@@ -20,13 +20,25 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        require: [true, 'Please provide password'],
+        required: [true, 'Please provide password'],
         minlength: 6,
     },
     role: {
         type: String,
         enum: ['admin', 'user'],
         default: 'user',
+    },
+    verificationToken: String,
+    isVerified: {
+        type: String,
+        default: false,
+    },
+    verified: Date,
+    passwordToken: {
+        type: String,
+    },
+    passwordTokenExpirationDate: {
+        type: Date,
     },
 })
 
